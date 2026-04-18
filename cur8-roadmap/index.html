@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CUR8 — Revenue Diversification Roadmap & HR Strategy</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --primary: #1a1a2e;
+            --accent: #e94560;
+            --secondary: #0f3460;
+            --text: #16213e;
+            --bg: #f5f5f5;
+            --card: #ffffff;
+            --warning: #ff6b6b;
+            --success: #51cf66;
+            --gold: #ffd700;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        
+        header {
+            background: var(--primary);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            border-radius: 0 0 30px 30px;
+            margin-bottom: 40px;
+        }
+        header h1 { font-size: 3rem; margin-bottom: 10px; }
+        header .tagline { font-size: 1.2rem; opacity: 0.9; margin-bottom: 20px; }
+        header .subtitle { font-size: 1rem; opacity: 0.7; }
+        
+        .alert {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(255,107,107,0.3);
+        }
+        .alert h2 { font-size: 1.5rem; margin-bottom: 10px; }
+        .alert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .alert-stat {
+            background: rgba(255,255,255,0.2);
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .alert-stat .number { font-size: 2rem; font-weight: bold; }
+        .alert-stat .label { font-size: 0.9rem; opacity: 0.9; }
+        
+        .section { margin-bottom: 50px; }
+        .section-title {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid var(--accent);
+        }
+        
+        .timeline {
+            display: grid;
+            gap: 30px;
+        }
+        .phase {
+            background: var(--card);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        .phase::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: var(--accent);
+        }
+        .phase-1::before { background: #ff6b6b; }
+        .phase-2::before { background: #ffa502; }
+        .phase-3::before { background: #51cf66; }
+        
+        .phase-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .phase-title {
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+        .phase-period {
+            background: var(--secondary);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+        
+        .revenue-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .revenue-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 20px;
+            border-radius: 15px;
+            border-left: 4px solid var(--accent);
+        }
+        .revenue-card.priority-high { border-left-color: #ff6b6b; }
+        .revenue-card.priority-medium { border-left-color: #ffa502; }
+        .revenue-card.priority-low { border-left-color: #51cf66; }
+        .revenue-card h4 { 
+            color: var(--primary); 
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .priority-badge {
+            font-size: 0.7rem;
+            padding: 3px 8px;
+            border-radius: 10px;
+            color: white;
+        }
+        .priority-high .priority-badge { background: #ff6b6b; }
+        .priority-medium .priority-badge { background: #ffa502; }
+        .priority-low .priority-badge { background: #51cf66; }
+        
+        .hr-section {
+            background: var(--card);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        
+        .team-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .team-table th, .team-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #e9ecef;
+        }
+        .team-table th {
+            background: var(--primary);
+            color: white;
+        }
+        .team-table tr:hover { background: #f8f9fa; }
+        
+        .cost-tactics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        .tactic-card {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 15px;
+            position: relative;
+        }
+        .tactic-card.immediate::before,
+        .tactic-card.medium::before,
+        .tactic-card.longterm::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            border-radius: 15px 15px 0 0;
+        }
+        .tactic-card.immediate::before { background: #ff6b6b; }
+        .tactic-card.medium::before { background: #ffa502; }
+        .tactic-card.longterm::before { background: #51cf66; }
+        
+        .tactic-card h4 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .tactic-icon { font-size: 1.5rem; }
+        .tactic-card ul {
+            list-style: none;
+            padding: 0;
+        }
+        .tactic-card li {
+            padding: 8px 0;
+            border-bottom: 1px dashed #dee2e6;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+        .tactic-card li:last-child { border-bottom: none; }
+        .tactic-card li::before {
+            content: '→';
+            color: var(--accent);
+            font-weight: bold;
+        }
+        .savings { 
+            color: var(--success); 
+            font-weight: 600; 
+            margin-top: 10px;
+            display: block;
+        }
+        
+        .summary {
+            background: var(--primary);
+            color: white;
+            padding: 40px;
+            border-radius: 20px;
+            margin-top: 40px;
+        }
+        .summary h2 {
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .summary-card {
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+        }
+        .summary-card .number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--gold);
+        }
+        .summary-card .label {
+            margin-top: 10px;
+            opacity: 0.9;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 40px;
+            color: #6c757d;
+            margin-top: 40px;
+        }
+        
+        @media (max-width: 768px) {
+            header h1 { font-size: 2rem; }
+            .phase-header { flex-direction: column; align-items: flex-start; gap: 10px; }
+            .alert-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎵 CUR8</h1>
+            <p class="tagline">Revenue Diversification Roadmap & HR Cost Reduction Strategy</p>
+            <p class="subtitle">Cafe + Bar + Sound Lab Concept | Est. 08/06/2026</p>
+        </header>
+        
+        <div class="alert">
+            <h2>⚠️ Critical Revenue Gap Warning</h2>
+            <p>F&B direct revenue alone <strong>cannot cover operating costs</strong>. Events + brand collaborations are <strong>mandatory</strong>, not optional.</p>
+            <div class="alert-grid">
+                <div class="alert-stat">
+                    <div class="number">50-60%</div>
+                    <div class="label">F&B Coverage</div>
+                </div>
+                <div class="alert-stat">
+                    <div class="number">$15K-20K</div>
+                    <div class="label">Breakeven Target</div>
+                </div>
+                <div class="alert-stat">
+                    <div class="number">$3K-8K</div>
+                    <div class="label">Monthly Gap</div>
+                </div>
+                <div class="alert-stat">
+                    <div class="number">14</div>
+                    <div class="label">Team Headcount</div>
+                </div>
+            </div>
+        </div>
+        
+        <section class="section">
+            <h2 class="section-title">📈 Revenue Diversification Roadmap</h2>
+            
+            <div class="timeline">
+                <div class="phase phase-1">
+                    <div class="phase-header">
+                        <h3 class="phase-title">Phase 1: Quick Wins</h3>
+                        <span class="phase-period">Month 1-3</span>
+                    </div>
+                    <div class="revenue-grid">
+                        <div class="revenue-card priority-high">
+                            <h4>F&B Core Revenue <span class="priority-badge">URGENT</span></h4>
+                            <p>Coffee AM + Cocktails PM model. Target: $9,000-12,000/month</p>
+                        </div>
+                        <div class="revenue-card priority-high">
+                            <h4>Venue Bookings <span class="priority-badge">URGENT</span></h4>
+                            <p>Private events, corporate mixers, birthday packages</p>
+                        </div>
+                        <div class="revenue-card priority-high">
+                            <h4>Ticketed Events <span class="priority-badge">URGENT</span></h4>
+                            <p>Sound Lab DJ/Jazz nights. Need pricing strategy ($10-25/ticket)</p>
+                        </div>
+                        <div class="revenue-card priority-medium">
+                            <h4>Takeaway/Delivery <span class="priority-badge">MONTH 2</span></h4>
+                            <p>Capture off-hours revenue via packaged products</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="phase phase-2">
+                    <div class="phase-header">
+                        <h3 class="phase-title">Phase 2: Growth Leverage</h3>
+                        <span class="phase-period">Month 4-8</span>
+                    </div>
+                    <div class="revenue-grid">
+                        <div class="revenue-card priority-medium">
+                            <h4>Brand Collaborations <span class="priority-badge">$500-1,500/event</span></h4>
+                            <p>Alcohol brands, audio equipment sponsors, activations</p>
+                        </div>
+                        <div class="revenue-card priority-medium">
+                            <h4>Artist Residency <span class="priority-badge">$1,000-3,000/mo</span></h4>
+                            <p>Regular Jazz/DJ nights — ticketed + drink packages</p>
+                        </div>
+                        <div class="revenue-card priority-medium">
+                            <h4>Workspace Subscriptions <span class="priority-badge">$200-500/mo</span></h4>
+                            <p>Daily/weekly/monthly co-working passes in cafe section</p>
+                        </div>
+                        <div class="revenue-card priority-low">
+                            <h4>Merchandise <span class="priority-badge">$300-800/mo</span></h4>
+                            <p>Vinyl accessories, branded glassware, coasters</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="phase phase-3">
+                    <div class="phase-header">
+                        <h3 class="phase-title">Phase 3: Scale</h3>
+                        <span class="phase-period">Month 9-12</span>
+                    </div>
+                    <div class="revenue-grid">
+                        <div class="revenue-card priority-low">
+                            <h4>Private Label Spirits</h4>
+                            <p>"CUR8 House Pour" bottles with higher margin</p>
+                        </div>
+                        <div class="revenue-card priority-low">
+                            <h4>Subscription Box</h4>
+                            <p>Monthly cocktail ingredient box + recipe cards</p>
+                        </div>
+                        <div class="revenue-card priority-low">
+                            <h4>Concept Licensing</h4>
+                            <p>HCMC or other city expansion if model validates</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section">
+            <h2 class="section-title">👥 HR Cost Reduction Strategy</h2>
+            
+            <div class="hr-section">
+                <h3>Current Team Structure</h3>
+                <p style="margin-bottom: 20px; color: #6c757d;">Estimated payroll: <strong>130-160M VND/month (~$5,200-6,400)</strong> for 14 headcount</p>
+                
+                <table class="team-table">
+                    <thead>
+                        <tr>
+                            <th>Role</th>
+                            <th>Headcount</th>
+                            <th>Est. Cost (VND)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>General Manager</td><td>1</td><td>25-35M</td></tr>
+                        <tr><td>Accountant/Cashier</td><td>1</td><td>15-20M</td></tr>
+                        <tr><td>Supervisor</td><td>1</td><td>12-18M</td></tr>
+                        <tr><td>Bar Leader</td><td>1</td><td>15-20M</td></tr>
+                        <tr><td>Bar Staff</td><td>3</td><td>~36M (12M each)</td></tr>
+                        <tr><td>Server Leader</td><td>1</td><td>10-15M</td></tr>
+                        <tr><td>Server</td><td>2</td><td>~16M (8M each)</td></tr>
+                        <tr><td>Kitchen (TBD)</td><td>-</td><td>Variable</td></tr>
+                        <tr style="font-weight: bold; background: #e9ecef;">
+                            <td>Total</td><td>~14</td><td>130-160M</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <div class="cost-tactics">
+                    <div class="tactic-card immediate">
+                        <h4><span class="tactic-icon">🔴</span> Immediate (Pre-opening)</h4>
+                        <ul>
+                            <li><strong>Kitchen outsource:</strong> Central/ghost kitchen prep → save 20-30% kitchen labor</li>
+                            <li><strong>Hiring freeze:</strong> No dedicated marketing team (Vũ+PA cover)</li>
+                            <li><strong>External accountant:</strong> $300-500/mo vs 15-20M VND full-time</li>
+                            <li><strong>Multi-skilling:</strong> Bar staff → server = flexible scheduling</li>
+                        </ul>
+                        <span class="savings">Est. savings: 30-50M VND/month</span>
+                    </div>
+                    
+                    <div class="tactic-card medium">
+                        <h4><span class="tactic-icon">🟡</span> Medium-term (1-6 months)</h4>
+                        <ul>
+                            <li><strong>Tip pool structure:</strong> 5-10% service charge on bills</li>
+                            <li><strong>Performance scheduling:</strong> Peak hours (7-10PM) = full staff</li>
+                            <li><strong>Artist revenue split:</strong> 60/40 vs fixed payments</li>
+                            <li><strong>AM minimum staffing:</strong> 1 bar + 1 server + 1 kitchen</li>
+                        </ul>
+                        <span class="savings">Est. savings: 15-25M VND/month</span>
+                    </div>
+                    
+                    <div class="tactic-card longterm">
+                        <h4><span class="tactic-icon">🟢</span> Long-term (6-12 months)</h4>
+                        <ul>
+                            <li><strong>POS automation:</strong> Payoo integration → inventory tracking</li>
+                            <li><strong>AI chatbot:</strong> Reservations → reduce receptionist load</li>
+                            <li><strong>Revenue/FTE target:</strong> >15-20M VND/employee/month</li>
+                        </ul>
+                        <span class="savings">Est. savings: 10-20M VND/month</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <div class="summary">
+            <h2>🎯 Key Takeaways</h2>
+            <p>Revenue diversification is not optional — <strong>events and brand collaborations fill the critical gap</strong> between F&B revenue and breakeven target.</p>
+            
+            <div class="summary-grid">
+                <div class="summary-card">
+                    <div class="number">$12.5-22.5K</div>
+                    <div class="label">Target Monthly Revenue</div>
+                </div>
+                <div class="summary-card">
+                    <div class="number">60-70%</div>
+                    <div class="label">F&B Contribution</div>
+                </div>
+                <div class="summary-card">
+                    <div class="number">30-40%</div>
+                    <div class="label">Events + Brands</div>
+                </div>
+                <div class="summary-card">
+                    <div class="number">55-95M</div>
+                    <div class="label">Potential HR Savings</div>
+                </div>
+            </div>
+        </div>
+        
+        <footer class="footer">
+            <p>Generated by Oculus 👁️ | 18/04/2026</p>
+            <p>Source: CUR8 Business Plan + Revenue Analysis</p>
+        </footer>
+    </div>
+</body>
+</html>
