@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cur8 x Brands — Sponsor Pitch Deck</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap');
+
+    :root {
+      --black: #0a0a0a;
+      --white: #f5f5f0;
+      --cream: #e8e4db;
+      --accent: #c8a96e;
+      --muted: #8a8680;
+      --surface: #1a1a1a;
+      --border: #2a2a2a;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: 'Space Grotesk', sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .slide {
+      min-height: 100vh;
+      padding: 80px 100px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .slide-number {
+      position: absolute;
+      top: 40px;
+      right: 60px;
+      font-family: 'Space Mono', monospace;
+      font-size: 13px;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+    }
+
+    .slide-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 24px;
+    }
+
+    h1 {
+      font-size: clamp(48px, 6vw, 96px);
+      font-weight: 700;
+      line-height: 0.95;
+      letter-spacing: -0.03em;
+    }
+
+    h2 {
+      font-size: clamp(32px, 4vw, 56px);
+      font-weight: 600;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 40px;
+    }
+
+    h3 {
+      font-size: 22px;
+      font-weight: 500;
+      color: var(--cream);
+      margin-bottom: 16px;
+    }
+
+    .mega {
+      font-size: clamp(80px, 12vw, 180px);
+      font-weight: 700;
+      line-height: 0.85;
+      letter-spacing: -0.04em;
+    }
+
+    .accent-text { color: var(--accent); }
+    .muted-text { color: var(--muted); }
+
+    p {
+      font-size: 18px;
+      line-height: 1.6;
+      color: var(--cream);
+      max-width: 640px;
+    }
+
+    .lead {
+      font-size: 24px;
+      line-height: 1.5;
+      color: var(--cream);
+      max-width: 700px;
+    }
+
+    .divider {
+      width: 48px;
+      height: 2px;
+      background: var(--accent);
+      margin: 32px 0;
+    }
+
+    ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    li {
+      font-size: 18px;
+      line-height: 1.5;
+      color: var(--cream);
+      padding-left: 24px;
+      position: relative;
+    }
+
+    li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-family: 'Space Mono', monospace;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      margin-top: 40px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      margin-top: 40px;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 32px;
+      border-radius: 4px;
+    }
+
+    .card .card-tag {
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+
+    .card h3 {
+      font-size: 20px;
+      margin-bottom: 12px;
+    }
+
+    .card p {
+      font-size: 15px;
+      color: var(--muted);
+    }
+
+    .stat-block {
+      text-align: left;
+    }
+
+    .stat-number {
+      font-size: clamp(56px, 8vw, 100px);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      color: var(--accent);
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 16px;
+      color: var(--muted);
+      margin-top: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .tier {
+      border: 1px solid var(--border);
+      padding: 40px;
+      border-radius: 4px;
+      position: relative;
+    }
+
+    .tier.featured {
+      border-color: var(--accent);
+    }
+
+    .tier-badge {
+      position: absolute;
+      top: -12px;
+      left: 40px;
+      background: var(--accent);
+      color: var(--black);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 2px;
+    }
+
+    .tier-name {
+      font-size: 28px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .tier-price {
+      font-size: 40px;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 4px;
+    }
+
+    .tier-note {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 24px;
+    }
+
+    .tier ul {
+      gap: 12px;
+    }
+
+    .tier li {
+      font-size: 15px;
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .tag {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 8px 16px;
+      font-size: 13px;
+      border-radius: 2px;
+      color: var(--cream);
+      font-family: 'Space Mono', monospace;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 40px;
+      align-items: start;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .timeline-date {
+      font-family: 'Space Mono', monospace;
+      font-size: 13px;
+      color: var(--accent);
+    }
+
+    .timeline-content h4 {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .timeline-content p {
+      font-size: 15px;
+      color: var(--muted);
+    }
+
+    .hero-slide {
+      background: linear-gradient(135deg, var(--black) 0%, #111 100%);
+    }
+
+    .hero-slide::before {
+      content: '';
+      position: absolute;
+      top: 0; right: 0;
+      width: 50%;
+      height: 100%;
+      background: radial-gradient(ellipse at top right, rgba(200,169,110,0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .quote-slide {
+      background: var(--surface);
+    }
+
+    .quote-text {
+      font-size: clamp(28px, 4vw, 48px);
+      font-weight: 300;
+      line-height: 1.3;
+      font-style: italic;
+      color: var(--cream);
+      max-width: 900px;
+    }
+
+    .quote-author {
+      margin-top: 32px;
+      font-size: 16px;
+      color: var(--muted);
+    }
+
+    .logo-row {
+      display: flex;
+      align-items: center;
+      gap: 48px;
+      margin-top: 48px;
+    }
+
+    .logo-placeholder {
+      border: 1px solid var(--border);
+      padding: 16px 32px;
+      font-family: 'Space Mono', monospace;
+      font-size: 12px;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+    }
+
+    .format-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      margin-top: 40px;
+    }
+
+    .format-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 28px;
+      border-radius: 4px;
+    }
+
+    .format-card h4 {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+
+    .format-card p {
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .format-card .format-tag {
+      display: inline-block;
+      margin-top: 12px;
+      font-size: 11px;
+      font-family: 'Space Mono', monospace;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      border: 1px solid var(--accent);
+      padding: 3px 10px;
+      border-radius: 2px;
+    }
+
+    .cta-row {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      margin-top: 48px;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: var(--black);
+      padding: 16px 40px;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border: none;
+      cursor: pointer;
+      font-family: 'Space Grotesk', sans-serif;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--cream);
+      padding: 16px 40px;
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      border: 1px solid var(--border);
+      cursor: pointer;
+      font-family: 'Space Grotesk', sans-serif;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .contact-block {
+      margin-top: 48px;
+      padding: 40px;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      background: var(--surface);
+    }
+
+    .contact-line {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 16px;
+    }
+
+    .contact-line:last-child { border-bottom: none; }
+    .contact-key { color: var(--muted); min-width: 100px; }
+    .contact-val { color: var(--cream); }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+      margin-top: 40px;
+    }
+
+    .vs-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 32px;
+      border-radius: 4px;
+    }
+
+    .vs-box h4 {
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--accent);
+      margin-bottom: 16px;
+      font-family: 'Space Mono', monospace;
+    }
+
+    .vs-box li { font-size: 15px; margin-bottom: 10px; }
+    .vs-box li::before { content: '✗ '; color: #e84; }
+
+    @media (max-width: 768px) {
+      .slide { padding: 60px 32px; }
+      .grid-2, .grid-3, .two-col { grid-template-columns: 1fr; }
+      .format-grid { grid-template-columns: 1fr; }
+      .tier { margin-bottom: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- SLIDE 1: COVER -->
+<div class="slide hero-slide">
+  <div class="slide-number">01 / 14</div>
+  <div class="slide-label">Cur8 — Brand Partnership Deck</div>
+  <h1>Cur8<br><span class="accent-text">Sound Lab</span></h1>
+  <div class="divider"></div>
+  <p class="lead">Đối tác thương hiệu cho trải nghiệm âm thanh đắm chìm tại Quảng Yên</p>
+  <div class="tag-list" style="margin-top:32px">
+    <span class="tag">Listening Room</span>
+    <span class="tag">Brand Activation</span>
+    <span class="tag">Sound Lab</span>
+    <span class="tag">Vinyl & HiFi</span>
+  </div>
+</div>
+
+<!-- SLIDE 2: THE CONTEXT -->
+<div class="slide">
+  <div class="slide-number">02 / 14</div>
+  <div class="slide-label">Bối cảnh</div>
+  <h2>Thị trường đang thay đổi.<br>Sự chú ý đang khan hiếm.</h2>
+  <div class="grid-2">
+    <div>
+      <h3>Vấn đề của thương hiệu bia & rượu</h3>
+      <ul>
+        <li>Người tiêu dùng ngày càng khó tiếp cận — ad fatigue, subscription fatigue</li>
+        <li>Không gian bán lẻ/truyền thống không còn đủ đặc biệt để tạo brand memory</li>
+        <li>Các chiến dịch ATL truyền thống khó đo lường ROI thực sự</li>
+        <li>Gen Z/Millennial premium segment tìm kiếm trải nghiệm có chiều sâu</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Cơ hội</h3>
+      <ul>
+        <li>Music x Alcohol = sensory brand experience không thể copy-paste</li>
+        <li>Không gian đặc thù tạo ra "reason to believe" khác biệt hoàn toàn</li>
+        <li>Event-based marketing tạo content + UGC tự nhiên, không costing</li>
+        <li>Premium audience = premium brand fit</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 3: CASE STUDY -->
+<div class="slide quote-slide">
+  <div class="slide-number">03 / 14</div>
+  <div class="slide-label">Case study — Kirin Ichiban Listening Room</div>
+  <div class="quote-text">"Framed as a temple of sound purity, the Listening Room allowed audiences to hear music in its most faithful form — vinyl through high-end audio, in a space designed for listening without distraction."</div>
+  <div class="quote-author">— Monster Children x Kirin Ichiban, Sydney</div>
+  <div class="divider"></div>
+  <div class="grid-2" style="margin-top:16px">
+    <div>
+      <h3 style="font-size:16px;color:var(--muted);margin-bottom:12px">Mô hình</h3>
+      <p style="font-size:15px">Kirin Ichiban tài trợ không gian nghe nhạc HiFi độc quyền tại Ivy Penthouse, Sydney. Khách mời được thưởng thức bia Nhật Bản premium trong khi Gilles Peterson DJ set với record collection cá nhân.</p>
+    </div>
+    <div>
+      <h3 style="font-size:16px;color:var(--muted);margin-bottom:12px">Kết quả</h3>
+      <ul>
+        <li>Không gian limited-seat tạo FOMO + exclusivity</li>
+        <li>Content từ UGC khách mời lan tỏa tự nhiên</li>
+        <li>Brand integration tinh tế — bia là pairing không phải centerpiece</li>
+        <li>Perceived value của brand được nâng hạng ngay lập tức</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 4: WHAT IS CUR8 -->
+<div class="slide">
+  <div class="slide-number">04 / 14</div>
+  <div class="slide-label">Cur8 là gì</div>
+  <h2>Cur8 — Sound Lab & Café<br><span class="accent-text">tại Quảng Yên</span></h2>
+  <div class="two-col">
+    <div>
+      <p>Không gian âm thanh đắm chìm 390m² tại Quảng Yên, Quảng Ninh. Kết hợp cafe ngày + listening bar đêm với hệ thống âm thanh HiFi, vinyl collection, và event space linh hoạt.</p>
+      <div class="divider"></div>
+      <ul>
+        <li>75 seats — intimate, không over-crowded</li>
+        <li>Sound Lab với acoustic treatment chuyên nghiệp</li>
+        <li>Vinyl library + HiFi system curated bởi team có 10+ năm kinh nghiệm âm nhạc</li>
+        <li>Event formats: Listening sessions, Jazz nights, DJ sets, Private bookings</li>
+      </ul>
+    </div>
+    <div>
+      <div class="card" style="margin-bottom:16px">
+        <div class="card-tag">Sound Lab</div>
+        <h3>Live Music & DJ Sets</h3>
+        <p>Pro audio system, live jazz, curated DJ sets — không gian thiết kế acoustics</p>
+      </div>
+      <div class="card" style="margin-bottom:16px">
+        <div class="card-tag">Café</div>
+        <h3>Premium Coffee</h3>
+        <p>Workspace ban ngày, ambient listening environment</p>
+      </div>
+      <div class="card">
+        <div class="card-tag">Bar</div>
+        <h3>Cocktails, Wines & Beers</h3>
+        <p>Premium spirits, carefully curated wine & beer selection</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 5: THE AUDIENCE -->
+<div class="slide">
+  <div class="slide-number">05 / 14</div>
+  <div class="slide-label">Audience</div>
+  <h2>Khán giả mục tiêu</h2>
+  <div class="grid-3">
+    <div class="card">
+      <div class="card-tag">Primary</div>
+      <h3>25–40 tuổi</h3>
+      <p>Urban professionals, creative class, music enthusiasts. Thu nhập trung bình-cao, sẵn sàng chi trả cho trải nghiệm premium</p>
+    </div>
+    <div class="card">
+      <div class="card-tag">Secondary</div>
+      <h3>Expats & tourists</h3>
+      <p>Người nước ngoài và du khách tìm kiếm trải nghiệm địa phương độc đáo, authentic</p>
+    </div>
+    <div class="card">
+      <div class="card-tag">Tertiary</div>
+      <h3>Local affluent</h3>
+      <p>Giới thượng lưu địa phương Quảng Ninh tìm không gian private event, business meeting</p>
+    </div>
+  </div>
+  <div class="divider"></div>
+  <div class="tag-list">
+    <span class="tag">Sound意识</span>
+    <span class="tag">Premium alcohol</span>
+    <span class="tag">Experience-driven</span>
+    <span class="tag">Social currency</span>
+    <span class="tag">Vinyl culture</span>
+    <span class="tag">HiFi enthusiasts</span>
+  </div>
+</div>
+
+<!-- SLIDE 6: WHY LISTENING ROOM WORKS FOR BRANDS -->
+<div class="slide">
+  <div class="slide-number">06 / 14</div>
+  <div class="slide-label">Why Listening Room</div>
+  <h2>Tại sao Listening Room<br>là format hoàn hảo cho brand</h2>
+  <div class="grid-2">
+    <div>
+      <div class="vs-box">
+        <h4>Traditional bar sponsorship</h4>
+        <ul>
+          <li>Logo placement — easily ignored</li>
+          <li>Mass exposure — no selectivity</li>
+          <li>Hard sell — low engagement</li>
+          <li>Hard to measure impact</li>
+        </ul>
+      </div>
+    </div>
+    <div>
+      <div class="vs-box" style="border-color:var(--accent)">
+        <h4 style="color:#8fbf20">Listening Room @ Cur8</h4>
+        <ul style="list-style:none">
+          <li style="color:#8fbf20">✗ Sensory immersion = brand memory that sticks</li>
+          <li style="color:#8fbf20">✗ Limited seats = exclusivity & FOMO</li>
+          <li style="color:#8fbf20">✗ Alcohol paired with music = emotional context</li>
+          <li style="color:#8fbf20">✗ UGC + content = organic amplification</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <p style="margin-top:32px;font-size:16px;color:var(--muted)">Listening Room tạo ra "sensory brand environment" — thương hiệu được trải nghiệm, không phải được quảng cáo. Khách mời associate brand với feeling tốt một cách tự nhiên.</p>
+</div>
+
+<!-- SLIDE 7: EVENT FORMATS -->
+<div class="slide">
+  <div class="slide-number">07 / 14</div>
+  <div class="slide-label">Activation formats</div>
+  <h2>Brand activation formats</h2>
+  <div class="format-grid">
+    <div class="format-card">
+      <h4>🍺 Listening Room Night</h4>
+      <p>Brand có không gian riêng 1–2 tiếng. DJ/resident artist chơi music được curate theo brand mood. Khách mời được sample sản phẩm. Không gian immersive với acoustic treatment.</p>
+      <span class="format-tag">60–90 phút</span>
+    </div>
+    <div class="format-card">
+      <h4>🎧 Branded Listening Session</h4>
+      <p>Curated listening experience với vinyl + HiFi. Khách mời ngồi yên, nghe nhạc, thưởng thức sản phẩm trong silence — concept từ Japan audiophile culture.</p>
+      <span class="format-tag">45–60 phút</span>
+    </div>
+    <div class="format-card">
+      <h4>🎺 Artist Residency Takeover</h4>
+      <p>Brand tài trợ 1 artist/resident DJ trong tháng. Artist chơi set được sponsor branding + khách mời được invite đặc biệt. Tạo ongoing relationship với audience.</p>
+      <span class="format-tag">1–4 tuần</span>
+    </div>
+    <div class="format-card">
+      <h4>🍷 Private Event Booking</h4>
+      <p>Brand booking toàn bộ venue cho private event: product launch, client entertainment, year-end party. Full venue takeover, custom music programming.</p>
+      <span class="format-tag">Full venue</span>
+    </div>
+  </div>
+  <p style="margin-top:24px;font-size:15px;color:var(--muted)">Mỗi format được thiết kế để sản phẩm alcohol là <em>integral part</em> của trải nghiệm, không phải decorative element.</p>
+</div>
+
+<!-- SLIDE 8: NUMBERS -->
+<div class="slide">
+  <div class="slide-number">08 / 14</div>
+  <div class="slide-label">By the numbers</div>
+  <h2>Cur8 in metrics</h2>
+  <div class="grid-3" style="margin-bottom:48px">
+    <div class="stat-block">
+      <div class="stat-number">75</div>
+      <div class="stat-label">Seats capacity</div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-number">390m²</div>
+      <div class="stat-label">Total floor area</div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-number">94.7%</div>
+      <div class="stat-label">Target occupancy</div>
+    </div>
+  </div>
+  <div class="grid-2">
+    <div>
+      <h3>Target audience size</h3>
+      <ul>
+        <li>Quảng Yên district: ~120K dân, fast-growing</li>
+        <li>Hạ Long tourist catchment: 4M+ visitors/năm</li>
+        <li>Hanoi CBD distance: 130km — weekend drive market</li>
+        <li>Ha Long Bay resort corridor — MICE potential</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Revenue model</h3>
+      <ul>
+        <li>F&B revenue: avg check 475K VND</li>
+        <li>Event revenue: tickets + private bookings</li>
+        <li>Target EBITDA Yr1: 2.4B VND</li>
+        <li>Grand opening: Q3 2026</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 9: WHAT WE OFFER -->
+<div class="slide">
+  <div class="slide-number">09 / 14</div>
+  <div class="slide-label">Partnership model</div>
+  <h2>Những gì brand<br><span class="accent-text">nhận được</span></h2>
+  <div class="grid-2">
+    <div>
+      <ul>
+        <li>Exclusive branded Listening Room nights — your space, your audience, your story</li>
+        <li>Product placement as integral part of experience (không phải poster trên tường)</li>
+        <li>VIP guest list — curated invite list phù hợp target demographic của brand</li>
+        <li>Content creation: professional photos + video từ event</li>
+        <li>Social media amplification qua Cur8 channels + UGC from guests</li>
+        <li>Data & insights: attendee feedback, consumption patterns, engagement metrics</li>
+        <li>Right to use event content for brand's own marketing</li>
+        <li>Ongoing association với music + culture scene — brand positioning as cultural curator</li>
+      </ul>
+    </div>
+    <div>
+      <div class="card" style="margin-bottom:16px">
+        <div class="card-tag">For Beer Brands</div>
+        <h3>Tap Takeover Options</h3>
+        <p>Curated beer tasting flight as pre-event hoặc pairing menu throughout the night. Sản phẩm được serve đúng cách (glassware, temp, pour style) bởi trained staff.</p>
+      </div>
+      <div class="card">
+        <div class="card-tag">For Wine Brands</div>
+        <h3>Wine & Music Pairing</h3>
+        <p>Cur8 team curate music to match wine profile — classical cho Burgundy, jazz cho Bordeaux. sommelier guidance + story telling on stage.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 10: PRICING TIERS -->
+<div class="slide">
+  <div class="slide-number">10 / 14</div>
+  <div class="slide-label">Investment</div>
+  <h2>Packages & Pricing</h2>
+  <div class="grid-3">
+    <div class="tier">
+      <div class="tier-name">Explorer</div>
+      <div class="tier-price">30M</div>
+      <div class="tier-note">/ event (3–4 hours)</div>
+      <ul>
+        <li>1 branded Listening Room night</li>
+        <li>Up to 75 pax guest list</li>
+        <li>Product sampling</li>
+        <li>Basic content (photos)</li>
+        <li>Social mention on Cur8 channels</li>
+        <li>Logo on event material</li>
+      </ul>
+    </div>
+    <div class="tier featured">
+      <div class="tier-badge">Recommended</div>
+      <div class="tier-name">Curator</div>
+      <div class="tier-price">80M</div>
+      <div class="tier-note">/ month</div>
+      <ul>
+        <li>2–3 Listening Room nights/month</li>
+        <li>Priority booking dates</li>
+        <li>Dedicated branding throughout venue</li>
+        <li>Professional content package</li>
+        <li>Social media amplification</li>
+        <li>UGC rights for brand use</li>
+        <li>Monthly performance report</li>
+        <li>First right of refusal on renewal</li>
+      </ul>
+    </div>
+    <div class="tier">
+      <div class="tier-name">Partner</div>
+      <div class="tier-price">200M</div>
+      <div class="tier-note">/ year</div>
+      <ul>
+        <li>Title sponsorship designation</li>
+        <li>12 exclusive nights/year</li>
+        <li>Year-round venue branding</li>
+        <li>Full content + UGC rights</li>
+        <li>Dedicated account management</li>
+        <li>Co-create signature event format</li>
+        <li>Invitation to private advisory board</li>
+        <li>First look at new formats</li>
+      </ul>
+    </div>
+  </div>
+  <p style="margin-top:24px;font-size:14px;color:var(--muted)">All prices excl. VAT. Custom packages available for multi-brand partnerships. Minimum commitment for custom format development: Curator tier.</p>
+</div>
+
+<!-- SLIDE 11: SOCIAL PROOF & CONTEXT -->
+<div class="slide">
+  <div class="slide-number">11 / 14</div>
+  <div class="slide-label">Market context</div>
+  <h2>Tại sao Quảng Yên,<br><span class="accent-text">tại sao bây giờ</span></h2>
+  <div class="grid-2">
+    <div>
+      <ul>
+        <li>Quảng Ninh là một trong những tỉnh giàu nhất VN với GRDP đầu người top 5</li>
+        <li>Hạ Long bay: UNESCO World Heritage site, 4M+ tourists/năm, đang boom resort development</li>
+        <li>Quảng Yên: strategic industrial zone nhưng thiếu lifestyle F&B — white space cho Cur8</li>
+        <li>Hiện không có listening bar/culture bar nào trong khu vực — first mover advantage rõ ràng</li>
+        <li>Music scene Hà Nội/Đà Nẵng đã chứng minh demand cho listening bars (Lương, Bial, etc.)</li>
+      </ul>
+    </div>
+    <div>
+      <div class="card">
+        <div class="card-tag">Team</div>
+        <h3>Cur8 có team phù hợp</h3>
+        <p>Music direction bởi Vũ — artist relations, booking. Music programming bởi Bush — vinyl sourcing, HiFi curation. Operations bởi Ánh — F&B, cocktails, wine. GM bởi Uyên — finance, compliance.</p>
+        <div class="divider"></div>
+        <p>Kelly Tú — overall coordination, brand partnerships</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 12: TIMELINE -->
+<div class="slide">
+  <div class="slide-number">12 / 14</div>
+  <div class="slide-label">Next steps</div>
+  <h2>Hành trình hợp tác</h2>
+  <div class="timeline-item">
+    <div class="timeline-date">Week 1–2</div>
+    <div class="timeline-content">
+      <h4>Discovery Call</h4>
+      <p>Tìm hiểu brand goals, target audience, sản phẩm, và budget. Đánh giá fit.</p>
+    </div>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-date">Week 2–3</div>
+    <div class="timeline-content">
+      <h4>Format Design</h4>
+      <p>Cur8 team pitch custom activation concept phù hợp brand. Demo music mood board, space layout, product positioning.</p>
+    </div>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-date">Week 3–4</div>
+    <div class="timeline-content">
+      <h4>Proposal & Contract</h4>
+      <p>Gửi detailed proposal với timeline, deliverables, investment breakdown. Ký hợp đồng.</p>
+    </div>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-date">Pre-event</div>
+    <div class="timeline-content">
+      <h4>Pre-Event Marketing</h4>
+      <p>Cur8 promote event qua social channels. Brand share on their channels. Guest list curation begins.</p>
+    </div>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-date">Event Day</div>
+    <div class="timeline-content">
+      <h4>Execution</h4>
+      <p>Cur8 manage full production: sound, staff, setup, guest check-in. Brand representative on-site for greeting.</p>
+    </div>
+  </div>
+  <div class="timeline-item" style="border-bottom:none">
+    <div class="timeline-date">Post-event</div>
+    <div class="timeline-content">
+      <h4>Content Delivery + Report</h4>
+      <p>Full content package + performance report within 7 days. Debrief call và planning for next activation.</p>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 13: CTA -->
+<div class="slide quote-slide" style="background:linear-gradient(135deg,#0f0f0f,var(--black))">
+  <div class="slide-number">13 / 14</div>
+  <div class="slide-label">Let's talk</div>
+  <h2 style="font-size:clamp(36px,5vw,64px)">Sẵn sàng tạo<br><span class="accent-text">trải nghiệm</span><br>không thể quên?</h2>
+  <div class="cta-row">
+    <a href="mailto:cur8.space@gmail.com" class="btn-primary">Liên hệ ngay</a>
+    <a href="https://t.me/keeshukansai" class="btn-secondary">DM @keeshukansai</a>
+  </div>
+  <div class="contact-block" style="margin-top:40px">
+    <div class="contact-line">
+      <span class="contact-key">Website</span>
+      <span class="contact-val">cur8.space (coming soon)</span>
+    </div>
+    <div class="contact-line">
+      <span class="contact-key">Email</span>
+      <span class="contact-val">cur8.space@gmail.com</span>
+    </div>
+    <div class="contact-line">
+      <span class="contact-key">Location</span>
+      <span class="contact-val">Quảng Yên, Quảng Ninh, Vietnam</span>
+    </div>
+    <div class="contact-line">
+      <span class="contact-key">Opening</span>
+      <span class="contact-val">Q3 2026</span>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 14: CLOSER -->
+<div class="slide" style="text-align:center;justify-content:center;align-items:center">
+  <div class="slide-number">14 / 14</div>
+  <div class="mega accent-text">Cur8</div>
+  <div class="divider" style="margin:32px auto"></div>
+  <p style="font-size:20px;color:var(--muted);max-width:none;text-align:center">Where sound meets spirit.</p>
+  <p style="font-size:14px;color:var(--muted);margin-top:48px;font-family:'Space Mono',monospace">© 2026 Cur8 Sound Lab & Café. Quảng Yên, Vietnam.</p>
+</div>
+
+</body>
+</html>
